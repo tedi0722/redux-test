@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as counterActions from '../actions/counterActions';
 
 class CounterApp extends Component {
   render() {
@@ -15,14 +16,14 @@ class CounterApp extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        counter: state.counter
+        counter: state.counterReducer.counter
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        increment: () => dispatch({ type: 'INCREMENT' }),
-        decrement: () => dispatch({ type: 'DECREMENT' }),
+        increment: () => dispatch(counterActions.increment()),
+        decrement: () => dispatch(counterActions.decrement()),
     }
 }
 
